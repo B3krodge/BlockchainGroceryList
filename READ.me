@@ -1,0 +1,66 @@
+
+# Decenteralized Blockchain Grocery List
+
+This application was a project for CS 4675 which was aimed to make a blockchain application. I ended up creating a grocery list where users can add items and remove them by using Ethereum.
+
+
+## Installation
+
+Before starting to deploy the project there are some things you must set up.
+### Ganache
+This will be used for cresating developer accounts with pre-loaded Ethereum. Once downloaded, click "Quickstart" to launch a preconfigured Ethereum test network. 
+```bash
+  npm install -g ganache
+```
+### Truffle Suite
+This will be used to deploy our smart contracts to the blockchain.
+```bash
+npm install -g truffle
+```
+### MetaMask
+This will be used to connect the front end application to the blockchain and our personal accounts in Ganache. Once downloaded as an extension to Chrome or some other browser, make an account. This is the URL for the Chrome extension:
+https://chromewebstore.google.com/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en.
+Once MetaMask is downloaded, do the following:
+
+Click your profile icon (top-right) → Settings → Networks → Add a network.
+
+Fill in the details:
+
+Network Name: "Your Prefered Name"
+
+New RPC URL: http://localhost:7545 (or the URL shown in Ganache)
+
+Chain ID: 1337 (default Ganache chain ID)
+
+Currency Symbol: ETH
+
+(Optional) Block Explorer URL: Leave blank.
+
+Click Save.
+Next we need to connect a private key from one of the Ganache accounts to a new Meta Mask accoutn by doing the following: 
+Click the 🔑 (key) icon next to any account to copy its private key.
+In MetaMask, click the account icon (top-right) → Import account.
+
+Paste the private key from Ganache and click Import.
+ 
+ You should now be set to go!
+
+## Deployment
+
+To deploy this project first compile the smart contracts:
+
+```bash
+  truffle compile
+```
+
+Next, migrate the contracts to Ganache:
+```bash
+truffle migrate --network development
+```
+Finally, you can see the user interface and start adding and removing your grocery list items with:
+
+```bash
+npm run dev
+```
+
+Once you follow these steps you should see the UI and be able to write and remove items from the grocery list as well as see the transactions occuring in the connecting Ganache account.

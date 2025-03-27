@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blake's Grocery List</title>
+
+    <!-- Bootstrap -->
+    <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+      body {
+        background-color: #f8f9fa; /* Light grey background */
+      }
+
+      .navbar-custom {
+        background-color: #28a745 !important; /* Green color */
+      }
+
+      .navbar-brand {
+        color: white !important;
+        font-weight: 500;
+        margin: 0 auto; /* Center the title */
+        left: 0;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-link {
+        color: white !important;
+      }
+
+      main {
+        margin-top: 60px;
+      }
+
+      #content {
+        display: none;
+      }
+
+      form {
+        width: 350px;
+        margin-bottom: 10px;
+      }
+
+      ul {
+        margin-bottom: 0px;
+      }
+
+      #completedGroceryList .content {
+        color: grey;
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-custom fixed-top navbar-expand-lg p-0 shadow">
+      <div class="container-fluid">
+        <a class="navbar-brand mx-auto">Blake's Grocery List</a>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <small
+              ><a class="nav-link" href="#"><span id="account"></span></a
+            ></small>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <main role="main" class="col-lg-12 d-flex justify-content-center">
+          <div id="loader" class="text-center">
+            <p class="text-center">Loading...</p>
+          </div>
+          <div id="content">
+            <form onSubmit="App.createGrocery(); return false;">
+              <input
+                id="newGrocery"
+                type="text"
+                class="form-control"
+                placeholder="Type to Add Grocery Here"
+                required
+              />
+              <input type="submit" hidden="" />
+            </form>
+            <ul id="groceryList" class="list-unstyled">
+              <div
+                class="groceryTemplate"
+                class="checkbox"
+                style="display: none"
+              >
+                <label>
+                  <input type="checkbox" />
+                  <span class="content">Grocery content goes here...</span>
+                </label>
+              </div>
+            </ul>
+            <ul id="completedGroceryList" class="list-unstyled"></ul>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/truffle-contract@4.0.31/dist/truffle-contract.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.x/dist/web3.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
